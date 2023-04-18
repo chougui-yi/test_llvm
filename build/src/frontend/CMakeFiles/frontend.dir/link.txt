@@ -1,0 +1,2 @@
+/bin/ar qc ../../lib/libfrontend.a CMakeFiles/frontend.dir/ASTBuilder.cpp.o CMakeFiles/frontend.dir/FrontEnd.cpp.o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o
+/bin/ranlib ../../lib/libfrontend.a

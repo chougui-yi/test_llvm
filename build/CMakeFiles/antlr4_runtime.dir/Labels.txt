@@ -1,0 +1,13 @@
+# Target labels
+ antlr4_runtime
+# Source files and their labels
+/test/Modelica-Compiler/build/CMakeFiles/antlr4_runtime
+/test/Modelica-Compiler/build/CMakeFiles/antlr4_runtime.rule
+/test/Modelica-Compiler/build/CMakeFiles/antlr4_runtime-complete.rule
+/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build.rule
+/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-configure.rule
+/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-download.rule
+/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-install.rule
+/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-mkdir.rule
+/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-patch.rule
+/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-update.rule

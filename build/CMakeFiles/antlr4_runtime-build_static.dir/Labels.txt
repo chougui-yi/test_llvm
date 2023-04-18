@@ -1,0 +1,6 @@
+# Target labels
+ antlr4_runtime
+# Source files and their labels
+/test/Modelica-Compiler/build/CMakeFiles/antlr4_runtime-build_static
+/test/Modelica-Compiler/build/CMakeFiles/antlr4_runtime-build_static.rule
+/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_static.rule
