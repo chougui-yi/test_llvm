@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/test/Modelica-Compiler/thirdparty/olive/tree.h"
+  "/test/test_llvm/thirdparty/olive/tree.h"
   "CMakeFiles/tree"
 )
 

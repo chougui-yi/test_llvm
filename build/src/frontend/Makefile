@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /test/Modelica-Compiler
+CMAKE_SOURCE_DIR = /test/test_llvm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /test/Modelica-Compiler/build
+CMAKE_BINARY_DIR = /test/test_llvm/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -E cmake_progress_start /test/Modelica-Compiler/build/CMakeFiles /test/Modelica-Compiler/build/src/frontend//CMakeFiles/progress.marks
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/frontend/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /test/Modelica-Compiler/build/CMakeFiles 0
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -E cmake_progress_start /test/test_llvm/build/CMakeFiles /test/test_llvm/build/src/frontend//CMakeFiles/progress.marks
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/frontend/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /test/test_llvm/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/frontend/clean
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/frontend/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/frontend/preinstall
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/frontend/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/frontend/preinstall
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/frontend/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/frontend/CMakeFiles/frontend.dir/rule:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/frontend/CMakeFiles/frontend.dir/rule
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/frontend/CMakeFiles/frontend.dir/rule
 .PHONY : src/frontend/CMakeFiles/frontend.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ frontend: src/frontend/CMakeFiles/frontend.dir/rule
 
 # fast build rule for target.
 frontend/fast:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/build
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/build
 .PHONY : frontend/fast
 
 ASTBuilder.o: ASTBuilder.cpp.o
@@ -135,7 +135,7 @@ ASTBuilder.o: ASTBuilder.cpp.o
 
 # target to build an object file
 ASTBuilder.cpp.o:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.o
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.o
 .PHONY : ASTBuilder.cpp.o
 
 ASTBuilder.i: ASTBuilder.cpp.i
@@ -143,7 +143,7 @@ ASTBuilder.i: ASTBuilder.cpp.i
 
 # target to preprocess a source file
 ASTBuilder.cpp.i:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.i
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.i
 .PHONY : ASTBuilder.cpp.i
 
 ASTBuilder.s: ASTBuilder.cpp.s
@@ -151,7 +151,7 @@ ASTBuilder.s: ASTBuilder.cpp.s
 
 # target to generate assembly for a file
 ASTBuilder.cpp.s:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.s
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.s
 .PHONY : ASTBuilder.cpp.s
 
 FrontEnd.o: FrontEnd.cpp.o
@@ -159,7 +159,7 @@ FrontEnd.o: FrontEnd.cpp.o
 
 # target to build an object file
 FrontEnd.cpp.o:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.o
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.o
 .PHONY : FrontEnd.cpp.o
 
 FrontEnd.i: FrontEnd.cpp.i
@@ -167,7 +167,7 @@ FrontEnd.i: FrontEnd.cpp.i
 
 # target to preprocess a source file
 FrontEnd.cpp.i:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.i
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.i
 .PHONY : FrontEnd.cpp.i
 
 FrontEnd.s: FrontEnd.cpp.s
@@ -175,15 +175,39 @@ FrontEnd.s: FrontEnd.cpp.s
 
 # target to generate assembly for a file
 FrontEnd.cpp.s:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.s
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.s
 .PHONY : FrontEnd.cpp.s
+
+Type.o: Type.cpp.o
+.PHONY : Type.o
+
+# target to build an object file
+Type.cpp.o:
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/Type.cpp.o
+.PHONY : Type.cpp.o
+
+Type.i: Type.cpp.i
+.PHONY : Type.i
+
+# target to preprocess a source file
+Type.cpp.i:
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/Type.cpp.i
+.PHONY : Type.cpp.i
+
+Type.s: Type.cpp.s
+.PHONY : Type.s
+
+# target to generate assembly for a file
+Type.cpp.s:
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/Type.cpp.s
+.PHONY : Type.cpp.s
 
 antlr4cpp_generated_src/modelica/modelicaBaseVisitor.o: antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o
 .PHONY : antlr4cpp_generated_src/modelica/modelicaBaseVisitor.o
 
 # target to build an object file
 antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o
 .PHONY : antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o
 
 antlr4cpp_generated_src/modelica/modelicaBaseVisitor.i: antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.i
@@ -191,7 +215,7 @@ antlr4cpp_generated_src/modelica/modelicaBaseVisitor.i: antlr4cpp_generated_src/
 
 # target to preprocess a source file
 antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.i:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.i
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.i
 .PHONY : antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.i
 
 antlr4cpp_generated_src/modelica/modelicaBaseVisitor.s: antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.s
@@ -199,7 +223,7 @@ antlr4cpp_generated_src/modelica/modelicaBaseVisitor.s: antlr4cpp_generated_src/
 
 # target to generate assembly for a file
 antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.s:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.s
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.s
 .PHONY : antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.s
 
 antlr4cpp_generated_src/modelica/modelicaLexer.o: antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o
@@ -207,7 +231,7 @@ antlr4cpp_generated_src/modelica/modelicaLexer.o: antlr4cpp_generated_src/modeli
 
 # target to build an object file
 antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o
 .PHONY : antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o
 
 antlr4cpp_generated_src/modelica/modelicaLexer.i: antlr4cpp_generated_src/modelica/modelicaLexer.cpp.i
@@ -215,7 +239,7 @@ antlr4cpp_generated_src/modelica/modelicaLexer.i: antlr4cpp_generated_src/modeli
 
 # target to preprocess a source file
 antlr4cpp_generated_src/modelica/modelicaLexer.cpp.i:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.i
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.i
 .PHONY : antlr4cpp_generated_src/modelica/modelicaLexer.cpp.i
 
 antlr4cpp_generated_src/modelica/modelicaLexer.s: antlr4cpp_generated_src/modelica/modelicaLexer.cpp.s
@@ -223,7 +247,7 @@ antlr4cpp_generated_src/modelica/modelicaLexer.s: antlr4cpp_generated_src/modeli
 
 # target to generate assembly for a file
 antlr4cpp_generated_src/modelica/modelicaLexer.cpp.s:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.s
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.s
 .PHONY : antlr4cpp_generated_src/modelica/modelicaLexer.cpp.s
 
 antlr4cpp_generated_src/modelica/modelicaParser.o: antlr4cpp_generated_src/modelica/modelicaParser.cpp.o
@@ -231,7 +255,7 @@ antlr4cpp_generated_src/modelica/modelicaParser.o: antlr4cpp_generated_src/model
 
 # target to build an object file
 antlr4cpp_generated_src/modelica/modelicaParser.cpp.o:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o
 .PHONY : antlr4cpp_generated_src/modelica/modelicaParser.cpp.o
 
 antlr4cpp_generated_src/modelica/modelicaParser.i: antlr4cpp_generated_src/modelica/modelicaParser.cpp.i
@@ -239,7 +263,7 @@ antlr4cpp_generated_src/modelica/modelicaParser.i: antlr4cpp_generated_src/model
 
 # target to preprocess a source file
 antlr4cpp_generated_src/modelica/modelicaParser.cpp.i:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.i
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.i
 .PHONY : antlr4cpp_generated_src/modelica/modelicaParser.cpp.i
 
 antlr4cpp_generated_src/modelica/modelicaParser.s: antlr4cpp_generated_src/modelica/modelicaParser.cpp.s
@@ -247,7 +271,7 @@ antlr4cpp_generated_src/modelica/modelicaParser.s: antlr4cpp_generated_src/model
 
 # target to generate assembly for a file
 antlr4cpp_generated_src/modelica/modelicaParser.cpp.s:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.s
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.s
 .PHONY : antlr4cpp_generated_src/modelica/modelicaParser.cpp.s
 
 antlr4cpp_generated_src/modelica/modelicaVisitor.o: antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o
@@ -255,7 +279,7 @@ antlr4cpp_generated_src/modelica/modelicaVisitor.o: antlr4cpp_generated_src/mode
 
 # target to build an object file
 antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o
 .PHONY : antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o
 
 antlr4cpp_generated_src/modelica/modelicaVisitor.i: antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.i
@@ -263,7 +287,7 @@ antlr4cpp_generated_src/modelica/modelicaVisitor.i: antlr4cpp_generated_src/mode
 
 # target to preprocess a source file
 antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.i:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.i
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.i
 .PHONY : antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.i
 
 antlr4cpp_generated_src/modelica/modelicaVisitor.s: antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.s
@@ -271,7 +295,7 @@ antlr4cpp_generated_src/modelica/modelicaVisitor.s: antlr4cpp_generated_src/mode
 
 # target to generate assembly for a file
 antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.s:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.s
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.s
 .PHONY : antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.s
 
 # Help Target
@@ -289,6 +313,9 @@ help:
 	@echo "... FrontEnd.o"
 	@echo "... FrontEnd.i"
 	@echo "... FrontEnd.s"
+	@echo "... Type.o"
+	@echo "... Type.i"
+	@echo "... Type.s"
 	@echo "... antlr4cpp_generated_src/modelica/modelicaBaseVisitor.o"
 	@echo "... antlr4cpp_generated_src/modelica/modelicaBaseVisitor.i"
 	@echo "... antlr4cpp_generated_src/modelica/modelicaBaseVisitor.s"
@@ -312,6 +339,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

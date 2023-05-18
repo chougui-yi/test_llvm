@@ -16,24 +16,21 @@ std::unique_ptr<Stored_definitionAST> FrontEnd::parse(std::istream& Stream) {
     modelicaLexer Lexer(&Input);
     CommonTokenStream Tokens(&Lexer);
     Tokens.fill();
-    LLVM_DEBUG({
-        llvm::outs() << "===== Lexer ===== \n";
+    std::cout<< "===== Lexer ===== \n"<<std::endl;
         for (auto token : Tokens.getTokens()) {
-            llvm::outs() << token->toString() << "\n";
+            std::cout<< token->toString() << "\n" <<std::endl;
         }
-    });
 
     modelicaParser Parser(&Tokens);
     modelicaParser::Stored_definitionContext* Stored_definition = Parser.stored_definition();
-    LLVM_DEBUG({
-        llvm::outs() << "===== Parser ===== \n";
-        llvm::outs() << Stored_definition->toStringTree(&Parser, true) << "\n";
+        std::cout<< "===== Parser ===== \n";
+        std::cout << Stored_definition->toStringTree(&Parser, true) << "\n";
         if (Parser.getNumberOfSyntaxErrors())
-            llvm::errs() << "===== Parser Failed ===== \n";
-    });
-
-    ASTBuilder Builder;
-    return Builder.build(Stored_definition);
+            std::cout << "===== Parser Failed ===== \n";
+    
+    ASTBuilder Builder(TheTypeContext);
+    auto a = Builder.build(Stored_definition);
+    return a;
 }
 
 }  // namespace modelica

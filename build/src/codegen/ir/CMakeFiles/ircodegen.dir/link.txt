@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../../lib/libircodegen.a CMakeFiles/ircodegen.dir/IRCodeGenerator.cpp.o CMakeFiles/ircodegen.dir/IRCodeGeneratorImpl.cpp.o
+/usr/bin/ranlib ../../../lib/libircodegen.a

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /test/Modelica-Compiler
+CMAKE_SOURCE_DIR = /test/test_llvm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /test/Modelica-Compiler/build
+CMAKE_BINARY_DIR = /test/test_llvm/build
 
 # Utility rule file for tree.
 
@@ -66,14 +66,14 @@ include thirdparty/olive/CMakeFiles/tree.dir/compiler_depend.make
 # Include the progress variables for this target.
 include thirdparty/olive/CMakeFiles/tree.dir/progress.make
 
-thirdparty/olive/CMakeFiles/tree: /test/Modelica-Compiler/thirdparty/olive/tree.h
+thirdparty/olive/CMakeFiles/tree: /test/test_llvm/thirdparty/olive/tree.h
 
-/test/Modelica-Compiler/thirdparty/olive/tree.h:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/test/Modelica-Compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /test/Modelica-Compiler/thirdparty/olive/tree.h"
-	cd /test/Modelica-Compiler/build/thirdparty/olive && m4 /test/Modelica-Compiler/thirdparty/olive/tree.gen /test/Modelica-Compiler/thirdparty/olive/x_array.gen /test/Modelica-Compiler/thirdparty/olive/hash.gen /test/Modelica-Compiler/thirdparty/olive/tree.int > /test/Modelica-Compiler/thirdparty/olive/tree.h
+/test/test_llvm/thirdparty/olive/tree.h:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/test/test_llvm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /test/test_llvm/thirdparty/olive/tree.h"
+	cd /test/test_llvm/build/thirdparty/olive && m4 /test/test_llvm/thirdparty/olive/tree.gen /test/test_llvm/thirdparty/olive/x_array.gen /test/test_llvm/thirdparty/olive/hash.gen /test/test_llvm/thirdparty/olive/tree.int > /test/test_llvm/thirdparty/olive/tree.h
 
 tree: thirdparty/olive/CMakeFiles/tree
-tree: /test/Modelica-Compiler/thirdparty/olive/tree.h
+tree: /test/test_llvm/thirdparty/olive/tree.h
 tree: thirdparty/olive/CMakeFiles/tree.dir/build.make
 .PHONY : tree
 
@@ -82,10 +82,10 @@ thirdparty/olive/CMakeFiles/tree.dir/build: tree
 .PHONY : thirdparty/olive/CMakeFiles/tree.dir/build
 
 thirdparty/olive/CMakeFiles/tree.dir/clean:
-	cd /test/Modelica-Compiler/build/thirdparty/olive && $(CMAKE_COMMAND) -P CMakeFiles/tree.dir/cmake_clean.cmake
+	cd /test/test_llvm/build/thirdparty/olive && $(CMAKE_COMMAND) -P CMakeFiles/tree.dir/cmake_clean.cmake
 .PHONY : thirdparty/olive/CMakeFiles/tree.dir/clean
 
 thirdparty/olive/CMakeFiles/tree.dir/depend:
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /test/Modelica-Compiler /test/Modelica-Compiler/thirdparty/olive /test/Modelica-Compiler/build /test/Modelica-Compiler/build/thirdparty/olive /test/Modelica-Compiler/build/thirdparty/olive/CMakeFiles/tree.dir/DependInfo.cmake --color=$(COLOR)
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /test/test_llvm /test/test_llvm/thirdparty/olive /test/test_llvm/build /test/test_llvm/build/thirdparty/olive /test/test_llvm/build/thirdparty/olive/CMakeFiles/tree.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : thirdparty/olive/CMakeFiles/tree.dir/depend
 

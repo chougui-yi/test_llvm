@@ -1,8 +1,18 @@
 #pragma once
 
+#include "frontend/Type.h"
 #include "llvm/IR/LLVMContext.h"
 #include "llvm/IR/Module.h"
 #include "llvm/IR/Value.h"
+#include "llvm/Support/Casting.h"
+#include "llvm/ADT/ArrayRef.h"
+#include "llvm/ADT/DenseMap.h"
+#include "llvm/ADT/DenseMapInfo.h"
+#include "llvm/ADT/DenseSet.h"
+#include "llvm/ADT/SmallVector.h"
+#include "llvm/Support/Allocator.h"
+#include "llvm/Support/raw_ostream.h"
+#include "llvm/Support/Casting.h"
 #include <algorithm>
 #include <iostream>
 #include <memory>
@@ -22,6 +32,34 @@ struct SourceLocation {
     size_t Line;
     size_t Col;
 };
+
+class ASTNode;
+class StmtAST;
+class ElementAST;
+class String_commentAST;
+class PrimaryAST;
+class EquationExprAST;
+class Stored_definitionAST;
+class Class_definitionAST;
+class Class_prefixesAST;
+class Long_Class_specifierAST;
+class CompositionAST;
+class Element_listAST;
+class Component_clauseAST;
+class Type_prefixAST;
+class Type_specifier_nameAST;
+class Component_declarationAST;
+class Variable_nameAST;
+class Equation_sectionAST;
+class EquationAST;
+class Equation_valuation2AST;
+class Simple_expressionAST;
+class ExpressionAST;
+class NumberExprAST;
+class Component_referenceAST;
+class Function_call_argsAST;
+class Arithmetic_expressionAST;
+
 
 class ASTNode {
 public:
@@ -65,6 +103,11 @@ public:
     StmtAST(ASTNode::Kind K, SourceLocation Loc): ASTNode(K, Loc) {}
 };
 
+class ExprAST: public ASTNode {
+public:
+    ExprAST(ASTNode::Kind K, SourceLocation Loc): ASTNode(K, Loc) {}
+};
+
 class ElementAST: public ASTNode{
 public:
     ElementAST(ASTNode::Kind K, SourceLocation Loc): ASTNode(K, Loc) {}
@@ -81,10 +124,10 @@ public:
 };
 
 
-class Simple_expressionAST: public ASTNode{
+class Simple_expressionAST: public ExprAST{
 public:
     Simple_expressionAST(SourceLocation Loc, std::unique_ptr<PrimaryAST> Left_Expr):
-        ASTNode(ASTNode::Simple_expression, Loc),Left_Expr(std::move(Left_Expr)){}
+        ExprAST(ASTNode::Simple_expression, Loc),Left_Expr(std::move(Left_Expr)){}
 
     PrimaryAST *getLeft_Expr() const { return Left_Expr.get(); }
 
@@ -92,10 +135,10 @@ private:
     std::unique_ptr<PrimaryAST> Left_Expr;
 };
 
-class ExpressionAST: public ASTNode{
-    public:
+class ExpressionAST: public ExprAST{
+public:
     ExpressionAST(SourceLocation Loc, std::unique_ptr<PrimaryAST> Right_Expr):
-        ASTNode(ASTNode::Expression, Loc),Right_Expr(std::move(Right_Expr)){}
+        ExprAST(ASTNode::Expression, Loc),Right_Expr(std::move(Right_Expr)){}
 
     PrimaryAST *getRight_Expr() const { return Right_Expr.get(); }
 
@@ -106,13 +149,13 @@ private:
 
 class NumberExprAST: public PrimaryAST{
 public:
-    NumberExprAST(SourceLocation Loc, int64_t Val):
+    NumberExprAST(SourceLocation Loc, double Val):
         PrimaryAST(ASTNode::NumberExpr, Loc), Val(Val){}
 
-   int64_t getValue() const { return Val; }
+    double getValue() const { return Val; }
 
 private:
-    int64_t Val;
+    double Val;
 
 };
 
@@ -121,7 +164,8 @@ public:
     Component_referenceAST(SourceLocation Loc, std::string Name):
         PrimaryAST(ASTNode::Component_reference, Loc), Name(Name){}
 
-   llvm::StringRef getName() const { return Name; }
+    llvm::StringRef getName() const { return Name; }
+    std::string getName1() const { return Name; }
 
 private:
     std::string Name;
@@ -133,7 +177,8 @@ public:
     Function_call_argsAST(SourceLocation Loc, std::string Name):
         PrimaryAST(ASTNode::Function_call_args, Loc), Name(Name){}
 
-   llvm::StringRef getName() const { return Name; }
+    llvm::StringRef getName() const { return Name; }
+    
 
 private:
     std::string Name;
@@ -142,17 +187,40 @@ private:
 
 class Arithmetic_expressionAST: public PrimaryAST{
 public:
-    Arithmetic_expressionAST(SourceLocation Loc, std::string OperatorType, 
+    enum OpKind {
+        Mul,
+        Div,
+        Add,
+        Sub,
+        Gt,
+        Eq,
+    };
+    Arithmetic_expressionAST(SourceLocation Loc, OpKind OperatorType, 
         std::unique_ptr<PrimaryAST> Left_Expr, std::unique_ptr<PrimaryAST> Right_Expr):
         PrimaryAST(ASTNode::Arithmetic_expression, Loc), OperatorType(OperatorType),
         Left_Expr(std::move(Left_Expr)), Right_Expr(std::move(Right_Expr)){}
 
-   llvm::StringRef getOperatorType() const { return OperatorType; }
-   PrimaryAST *getLeft_Expr() const { return Left_Expr.get(); }
-   PrimaryAST *getRight_Expr() const { return Right_Expr.get(); }
+    // Arithmetic_expressionAST(SourceLocation Loc):PrimaryAST(ASTNode::Arithmetic_expression, Loc){}
+
+    OpKind getOperatorType() const { return OperatorType; }
+    PrimaryAST *getLeft_Expr() const { return Left_Expr.get(); }
+    PrimaryAST *getRight_Expr() const { return Right_Expr.get(); }
+    std::string getOpString() const {
+        std::string OpStr;
+        switch (OperatorType) {
+        case OpKind::Mul: OpStr = "*"; break;
+        case OpKind::Div: OpStr = "/"; break;
+        case OpKind::Add: OpStr = "+"; break;
+        case OpKind::Sub: OpStr = "-"; break;
+        case OpKind::Gt: OpStr = ">"; break;
+        case OpKind::Eq: OpStr = "=="; break;
+        default: break;
+        }
+        return OpStr;
+    }
 
 private:
-    std::string OperatorType;
+    OpKind OperatorType;
     std::unique_ptr<PrimaryAST> Left_Expr;
     std::unique_ptr<PrimaryAST> Right_Expr;
 
@@ -181,24 +249,24 @@ private:
     std::unique_ptr<ExpressionAST> RExpr;
 };
 
-class Variable_nameAST: public ASTNode{
+class Variable_nameAST: public ExprAST{
 public:
     Variable_nameAST(SourceLocation Loc, 
                 std::string Variable_name):
-                ASTNode(ASTNode::Variable_name, Loc),Variable_name(Variable_name){}
+                ExprAST(ASTNode::Variable_name, Loc),Variable_name(Variable_name){}
 
     llvm::StringRef getVariable_name() const { return Variable_name; }
-    
+   
 private:
     std::string Variable_name;
 
 };
 
-class EquationAST: public ASTNode{
+class EquationAST: public ExprAST{
 public:
     EquationAST(SourceLocation Loc,
         std::unique_ptr<EquationExprAST> EquationExpr):
-        ASTNode(ASTNode::Equation, Loc),
+        ExprAST(ASTNode::Equation, Loc),
         EquationExpr(std::move(EquationExpr)) {}
 
 
@@ -209,11 +277,11 @@ private:
 
 };
 
-class Equation_sectionAST: public ASTNode{
+class Equation_sectionAST: public StmtAST{
 public:
     Equation_sectionAST(SourceLocation Loc,
         std::vector<std::unique_ptr<EquationAST>> Equations):
-        ASTNode(ASTNode::Equation_section, Loc),
+        StmtAST(ASTNode::Equation_section, Loc),
         Equations(std::move(Equations)) {}
 
 
@@ -223,11 +291,11 @@ private:
     std::vector<std::unique_ptr<EquationAST>> Equations;
 };
 
-class Type_prefixAST: public ASTNode{
+class Type_prefixAST: public StmtAST{
 public:
     Type_prefixAST(SourceLocation Loc, 
                 std::string Type_prefix_name):
-                ASTNode(ASTNode::Type_prefix, Loc),Type_prefix_name(Type_prefix_name){}
+                StmtAST(ASTNode::Type_prefix, Loc),Type_prefix_name(Type_prefix_name){}
 
     llvm::StringRef getType_prefix_name() const { return Type_prefix_name; }
     
@@ -236,24 +304,24 @@ private:
 
 };
 
-class Type_specifier_nameAST: public ASTNode{
+class Type_specifier_nameAST: public StmtAST{
 public:
     Type_specifier_nameAST(SourceLocation Loc, 
                 std::string Type_specifier_name):
-                ASTNode(ASTNode::Type_specifier_name, Loc),Type_specifier_name(Type_specifier_name){}
+                StmtAST(ASTNode::Type_specifier_name, Loc),Type_specifier_name(Type_specifier_name){}
 
     llvm::StringRef getType_specifier_name() const { return Type_specifier_name; }
-    
+
 private:
     std::string Type_specifier_name;
 
 };
 
-class Component_declarationAST: public ASTNode{
+class Component_declarationAST: public StmtAST{
 public:
     Component_declarationAST(SourceLocation Loc, 
                 std::unique_ptr<Variable_nameAST> Variable_name):
-                ASTNode(ASTNode::Component_declaration, Loc), Variable_name(std::move(Variable_name)){}
+                StmtAST(ASTNode::Component_declaration, Loc), Variable_name(std::move(Variable_name)){}
 
     Variable_nameAST *getVariable_name() const { return Variable_name.get(); }
     
@@ -284,43 +352,47 @@ private:
     std::unique_ptr<Component_declarationAST> Component_declaration;
 };
 
-class Element_listAST: public ASTNode{
+class Element_listAST: public StmtAST{
 public:
     Element_listAST(SourceLocation Loc, 
                 std::vector<std::unique_ptr<ElementAST>> Elements):
-                ASTNode(ASTNode::Element_list, Loc),Elements(std::move(Elements)){}
+                StmtAST(ASTNode::Element_list, Loc),Elements(std::move(Elements)){}
 
     std::vector<ElementAST *> getElements() const { return rawPtrs(Elements); }
-    
+   
 private:
     std::vector<std::unique_ptr<ElementAST>> Elements;
 };
 
 
-class Class_prefixesAST: public ASTNode{
+class Class_prefixesAST: public StmtAST{
 public:
     Class_prefixesAST(SourceLocation Loc, 
                 std::string Class_prefixes_name):
-                ASTNode(ASTNode::Class_prefixes, Loc),
+                StmtAST(ASTNode::Class_prefixes, Loc),
                 Class_prefixes_name(Class_prefixes_name){}
     
     llvm::StringRef getClass_prefixes_name() const { return Class_prefixes_name; }
+
 private:
    std::string Class_prefixes_name; 
 };
 
-class String_commentAST: public ASTNode{
+class String_commentAST: public StmtAST{
 public:
-    String_commentAST(SourceLocation Loc):ASTNode(ASTNode::Composition, Loc){}
+    String_commentAST(SourceLocation Loc):StmtAST(ASTNode::Composition, Loc){}
 };
 
-class CompositionAST: public ASTNode{
+class CompositionAST: public StmtAST{
 public:
     CompositionAST(SourceLocation Loc, 
                 std::unique_ptr<Element_listAST> Element_list,
                 std::unique_ptr<Equation_sectionAST> Equation_section):
-                ASTNode(ASTNode::Composition, Loc),
+                StmtAST(ASTNode::Composition, Loc),
                 Element_list(std::move(Element_list)), Equation_section(std::move(Equation_section)){}
+
+    CompositionAST(SourceLocation Loc) : StmtAST(ASTNode::Composition, Loc){}
+
 
     Element_listAST *getElement_list() const { return Element_list.get(); }
 
@@ -331,18 +403,19 @@ private:
    std::unique_ptr<Equation_sectionAST> Equation_section;
 };
 
-class Long_Class_specifierAST: public ASTNode{
+class Long_Class_specifierAST: public StmtAST{
 public:
     Long_Class_specifierAST(SourceLocation Loc, std::string Specifier_name,
                 std::unique_ptr<String_commentAST> String_comment,
-                std::unique_ptr<CompositionAST> Composition, std::string End_specifier_name):
-                ASTNode(ASTNode::Long_Class_specifier, Loc),
+                std::unique_ptr<CompositionAST> Composition):
+                StmtAST(ASTNode::Long_Class_specifier, Loc),
                 Specifier_name(Specifier_name), String_comment(std::move(String_comment)),
-                Composition(std::move(Composition)), End_Specifier_name(End_Specifier_name){}
+                Composition(std::move(Composition)){}
+    
 
     llvm::StringRef getSpecifier_name() const { return Specifier_name; } 
 
-    llvm::StringRef getEnd_Specifier_name() const { return End_Specifier_name; }
+    std::string getSpecifier_name1() const { return Specifier_name; } 
 
     String_commentAST *getString_comment() const { return String_comment.get(); }
 
@@ -352,15 +425,14 @@ private:
    std::string Specifier_name;
    std::unique_ptr<String_commentAST> String_comment;
    std::unique_ptr<CompositionAST> Composition; 
-   std::string End_Specifier_name;
 };
 
-class Class_definitionAST: public ASTNode {
+class Class_definitionAST: public StmtAST {
 public:
     Class_definitionAST(SourceLocation Loc, 
                 std::unique_ptr<Class_prefixesAST> Class_prefixes,
                 std::unique_ptr<Long_Class_specifierAST> Long_Class_specifier):
-                ASTNode(ASTNode::Class_definition, Loc),
+                StmtAST(ASTNode::Class_definition, Loc),
                 Class_prefixes(std::move(Class_prefixes)),
                 Long_Class_specifier(std::move(Long_Class_specifier)){}
 

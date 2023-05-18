@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime"
-  "/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-build"
-  "/test/Modelica-Compiler/build/antlr4_runtime"
-  "/test/Modelica-Compiler/build/antlr4_runtime/tmp"
-  "/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp"
-  "/test/Modelica-Compiler/build"
-  "/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp"
+  "/test/test_llvm/build/antlr4_runtime/src/antlr4_runtime"
+  "/test/test_llvm/build/antlr4_runtime/src/antlr4_runtime-build"
+  "/test/test_llvm/build/antlr4_runtime"
+  "/test/test_llvm/build/antlr4_runtime/tmp"
+  "/test/test_llvm/build/antlr4_runtime/src/antlr4_runtime-stamp"
+  "/test/test_llvm/build"
+  "/test/test_llvm/build/antlr4_runtime/src/antlr4_runtime-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/test/test_llvm/build/antlr4_runtime/src/antlr4_runtime-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/test/test_llvm/build/antlr4_runtime/src/antlr4_runtime-stamp${cfgdir}") # cfgdir has leading slash
 endif()

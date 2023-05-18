@@ -6,7 +6,9 @@ include_directories(${ANTLR_ModelicaGrammar_OUTPUT_DIR})
 
 # define a library for the front end
 add_library(frontend)
-target_sources(frontend PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/AST.h
+target_sources(frontend PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/Type.h
+                                ${CMAKE_CURRENT_SOURCE_DIR}/Type.cpp
+                                ${CMAKE_CURRENT_SOURCE_DIR}/AST.h
                                 ${CMAKE_CURRENT_SOURCE_DIR}/ASTBuilder.h
                                 ${CMAKE_CURRENT_SOURCE_DIR}/ASTBuilder.cpp
                                 ${CMAKE_CURRENT_SOURCE_DIR}/FrontEnd.h

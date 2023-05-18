@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/test/Modelica-Compiler/thirdparty/olive/gram.c"
+  "/test/test_llvm/thirdparty/olive/gram.c"
   "CMakeFiles/gram"
 )
 

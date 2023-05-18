@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /test/Modelica-Compiler
+CMAKE_SOURCE_DIR = /test/test_llvm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /test/Modelica-Compiler/build
+CMAKE_BINARY_DIR = /test/test_llvm/build
 
 # Utility rule file for gram.
 
@@ -66,14 +66,14 @@ include thirdparty/olive/CMakeFiles/gram.dir/compiler_depend.make
 # Include the progress variables for this target.
 include thirdparty/olive/CMakeFiles/gram.dir/progress.make
 
-thirdparty/olive/CMakeFiles/gram: /test/Modelica-Compiler/thirdparty/olive/gram.c
+thirdparty/olive/CMakeFiles/gram: /test/test_llvm/thirdparty/olive/gram.c
 
-/test/Modelica-Compiler/thirdparty/olive/gram.c:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/test/Modelica-Compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /test/Modelica-Compiler/thirdparty/olive/gram.c"
-	cd /test/Modelica-Compiler/build/thirdparty/olive && /bin/bison -y /test/Modelica-Compiler/thirdparty/olive/gram.y -o /test/Modelica-Compiler/thirdparty/olive/gram.c
+/test/test_llvm/thirdparty/olive/gram.c:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/test/test_llvm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /test/test_llvm/thirdparty/olive/gram.c"
+	cd /test/test_llvm/build/thirdparty/olive && /usr/bin/bison -y /test/test_llvm/thirdparty/olive/gram.y -o /test/test_llvm/thirdparty/olive/gram.c
 
 gram: thirdparty/olive/CMakeFiles/gram
-gram: /test/Modelica-Compiler/thirdparty/olive/gram.c
+gram: /test/test_llvm/thirdparty/olive/gram.c
 gram: thirdparty/olive/CMakeFiles/gram.dir/build.make
 .PHONY : gram
 
@@ -82,10 +82,10 @@ thirdparty/olive/CMakeFiles/gram.dir/build: gram
 .PHONY : thirdparty/olive/CMakeFiles/gram.dir/build
 
 thirdparty/olive/CMakeFiles/gram.dir/clean:
-	cd /test/Modelica-Compiler/build/thirdparty/olive && $(CMAKE_COMMAND) -P CMakeFiles/gram.dir/cmake_clean.cmake
+	cd /test/test_llvm/build/thirdparty/olive && $(CMAKE_COMMAND) -P CMakeFiles/gram.dir/cmake_clean.cmake
 .PHONY : thirdparty/olive/CMakeFiles/gram.dir/clean
 
 thirdparty/olive/CMakeFiles/gram.dir/depend:
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /test/Modelica-Compiler /test/Modelica-Compiler/thirdparty/olive /test/Modelica-Compiler/build /test/Modelica-Compiler/build/thirdparty/olive /test/Modelica-Compiler/build/thirdparty/olive/CMakeFiles/gram.dir/DependInfo.cmake --color=$(COLOR)
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /test/test_llvm /test/test_llvm/thirdparty/olive /test/test_llvm/build /test/test_llvm/build/thirdparty/olive /test/test_llvm/build/thirdparty/olive/CMakeFiles/gram.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : thirdparty/olive/CMakeFiles/gram.dir/depend
 

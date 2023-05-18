@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/frontend.dir/ASTBuilder.cpp.o.d"
   "CMakeFiles/frontend.dir/FrontEnd.cpp.o"
   "CMakeFiles/frontend.dir/FrontEnd.cpp.o.d"
+  "CMakeFiles/frontend.dir/Type.cpp.o"
+  "CMakeFiles/frontend.dir/Type.cpp.o.d"
   "CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o"
   "CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o.d"
   "CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o"

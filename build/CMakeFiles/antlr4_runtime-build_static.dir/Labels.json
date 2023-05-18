@@ -2,13 +2,13 @@
 	"sources" : 
 	[
 		{
-			"file" : "/test/Modelica-Compiler/build/CMakeFiles/antlr4_runtime-build_static"
+			"file" : "/test/test_llvm/build/CMakeFiles/antlr4_runtime-build_static"
 		},
 		{
-			"file" : "/test/Modelica-Compiler/build/CMakeFiles/antlr4_runtime-build_static.rule"
+			"file" : "/test/test_llvm/build/CMakeFiles/antlr4_runtime-build_static.rule"
 		},
 		{
-			"file" : "/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_static.rule"
+			"file" : "/test/test_llvm/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_static.rule"
 		}
 	],
 	"target" : 

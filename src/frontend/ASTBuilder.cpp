@@ -1,5 +1,12 @@
 #include "ASTBuilder.h"
 #include "AST.h"
+#include "llvm/ADT/ArrayRef.h"
+#include "llvm/ADT/DenseMap.h"
+#include "llvm/ADT/DenseMapInfo.h"
+#include "llvm/ADT/DenseSet.h"
+#include "llvm/ADT/SmallVector.h"
+#include "llvm/Support/Allocator.h"
+#include "llvm/Support/raw_ostream.h"
 
 
 namespace modelica {
@@ -33,33 +40,35 @@ static std::unique_ptr<Function_call_argsAST> visitedFunction_call_argsStmt = nu
 static bool exprIsLValue = false;
 
 std::unique_ptr<Stored_definitionAST> ASTBuilder::build(modelicaParser::Stored_definitionContext *Ctx) {
+    // std::cout<<"test1"<<std::endl;
     return std::move(visitStored_definition(Ctx).as<std::unique_ptr<Stored_definitionAST>>());
+    // return nullptr;
 }
 
 antlrcpp::Any
 ASTBuilder::ASTBuilder::visitStored_definition(modelicaParser::Stored_definitionContext *Ctx) {
-    std::vector<std::unique_ptr<Class_definitionAST>> Class_definitions;
-    for (auto *ClassCtx : Ctx->class_definition()) {
-        visit(ClassCtx);
-        Class_definitions.push_back(std::move(visitedClass_definitionStmt));
+    std::vector<modelicaParser::Class_definitionContext *> Class_definitionContexts = Ctx->class_definition();
+    for (unsigned i = 0; i < Class_definitionContexts.size(); ++i) {
+        auto Class_definition = visitClass_definitions(Class_definitionContexts[i]);
+        Class_definitions.push_back(std::move(Class_definition));
     }
     return std::make_unique<Stored_definitionAST>(std::move(Class_definitions));
 }
 
-antlrcpp::Any
-ASTBuilder::ASTBuilder::visitClass_definition(modelicaParser::Class_definitionContext *Ctx) {
+std::unique_ptr<Class_definitionAST>
+ASTBuilder::ASTBuilder::visitClass_definitions(modelicaParser::Class_definitionContext *Ctx) {
     if(Ctx->ENCAPSULATED()){
         std::string S = Ctx->ENCAPSULATED()->getText();
     }
     visit(Ctx->class_prefixes());
     std::unique_ptr<Class_prefixesAST> Class_pre = std::move(visitedClass_prefixesStmt);
     visit(Ctx->class_specifier()->long_class_specifier());
-    std::unique_ptr<Long_Class_specifierAST> Long_Class_spec = std::move(visitedLong_Class_specifierStmt);
-    visitedClass_definitionStmt = std::make_unique<Class_definitionAST>(
+    std::unique_ptr<Long_Class_specifierAST> Long_Class_specifier = std::move(visitedLong_Class_specifierStmt);
+    auto Class_definition = std::make_unique<Class_definitionAST>(
         SourceLocation {Ctx->getStart()->getLine(),
                         Ctx->getStart()->getCharPositionInLine()}, 
-                        std::move(Class_pre), std::move(Long_Class_spec));
-    return nullptr;
+                        std::move(Class_pre), std::move(Long_Class_specifier));
+    return Class_definition;
 }
 
 antlrcpp::Any
@@ -82,13 +91,13 @@ antlrcpp::Any
 ASTBuilder::visitLong_class_specifier(modelicaParser::Long_class_specifierContext *Ctx) {
     std::string Modelname = Ctx->id(0)->IDENT()->getText();
     visit(Ctx->string_comment());
-    std::unique_ptr<String_commentAST> String_com = std::move(visitedString_commentStmt);
+    std::unique_ptr<String_commentAST> String_comment = std::move(visitedString_commentStmt);
     visit(Ctx->composition());
     std::unique_ptr<CompositionAST> Composition = std::move(visitedCompositionStmt);
     visitedLong_Class_specifierStmt = std::make_unique<Long_Class_specifierAST>(
         SourceLocation {Ctx->getStart()->getLine(),
                         Ctx->getStart()->getCharPositionInLine()}, Modelname,
-                        std::move(String_com), std::move(Composition), Modelname);
+                        std::move(String_comment), std::move(Composition));
     return nullptr;
 }
 
@@ -257,6 +266,7 @@ antlrcpp::Any
 ASTBuilder::visitVariable_name(modelicaParser::Variable_nameContext *Ctx) {
     // visit(Ctx->id());
     std::string Variable_name = Ctx->id()->getText();
+    // std::cout << Variable_name << std::endl;
     visitedVariable_nameStmt = std::make_unique<Variable_nameAST>(
         SourceLocation {Ctx->getStart()->getLine(),
                         Ctx->getStart()->getCharPositionInLine()}, Variable_name);
@@ -284,6 +294,7 @@ ASTBuilder::visitEquation_section(modelicaParser::Equation_sectionContext *Ctx) 
         SourceLocation {Ctx->getStart()->getLine(),
                         Ctx->getStart()->getCharPositionInLine()}, 
                         std::move(Equations));
+
     return nullptr;
 }
 
@@ -324,23 +335,33 @@ ASTBuilder::visitEquation_valuation2(modelicaParser::Equation_valuation2Context 
 
 antlrcpp::Any
 ASTBuilder::visitExpression(modelicaParser::ExpressionContext *Ctx) {
-    visit(Ctx->expression(0)->simple_expression()->logical_expression(0)->logical_term(0)->logical_factor(0)->relation()
+    visit(Ctx->simple_expression()->logical_expression(0)->logical_term(0)->logical_factor(0)->relation()
     ->arithmetic_expression());
     std::unique_ptr<Arithmetic_expressionAST> Arithmetic_expression = std::move(visitedArithmetic_expressionStmt);
     visitedExpressionStmt = std::make_unique<ExpressionAST>(
         SourceLocation {Ctx->getStart()->getLine(),
                         Ctx->getStart()->getCharPositionInLine()}, std::move(Arithmetic_expression));
+    // printf("enterEXp...\n");
+
+    // visitedExpressionStmt = std::make_unique<ExpressionAST>(
+    //     SourceLocation {Ctx->getStart()->getLine(),
+    //                     Ctx->getStart()->getCharPositionInLine()});
     return nullptr;
 }
 
 antlrcpp::Any
 ASTBuilder::visitSimple_expression(modelicaParser::Simple_expressionContext *Ctx) {
     visit(Ctx->logical_expression(0)->logical_term(0)->logical_factor(0)->relation()
-    ->arithmetic_expression()->term(0)->factor(0)->primary(0)->function_call_args());
-    std::unique_ptr<Function_call_argsAST> Function_call_args = std::move(visitedFunction_call_argsStmt);
+    ->arithmetic_expression()->term(0)->factor(0)->primary(0)->component_reference());
+    // std::unique_ptr<Function_call_argsAST> Function_call_args = std::move(visitedFunction_call_argsStmt);
+    // visitedSimple_expressionStmt = std::make_unique<Simple_expressionAST>(
+    //     SourceLocation {Ctx->getStart()->getLine(),
+    //                     Ctx->getStart()->getCharPositionInLine()}, std::move(Function_call_args));
+    // printf("success");
+    std::unique_ptr<Component_referenceAST> Component_reference = std::move(visitedComponent_referenceStmt);
     visitedSimple_expressionStmt = std::make_unique<Simple_expressionAST>(
-        SourceLocation {Ctx->getStart()->getLine(),
-                        Ctx->getStart()->getCharPositionInLine()}, std::move(Function_call_args));
+         SourceLocation {Ctx->getStart()->getLine(),
+                         Ctx->getStart()->getCharPositionInLine()}, std::move(Component_reference));
 
     return nullptr;
 }
@@ -395,7 +416,7 @@ ASTBuilder::visitArithmetic_expression(modelicaParser::Arithmetic_expressionCont
     std::unique_ptr<Component_referenceAST> Component_referenceExpr = std::move(visitedComponent_referenceStmt);
     visitedArithmetic_expressionStmt = std::make_unique<Arithmetic_expressionAST>(
         SourceLocation {Ctx->getStart()->getLine(),
-                        Ctx->getStart()->getCharPositionInLine()}, Operator_Name, 
+                        Ctx->getStart()->getCharPositionInLine()}, Arithmetic_expressionAST::OpKind::Sub, 
                         std::move(NumberExpr), std::move(Component_referenceExpr));
     return nullptr;
 }
@@ -523,6 +544,9 @@ ASTBuilder::visitArray_subscripts(modelicaParser::Array_subscriptsContext *Ctx) 
 
 antlrcpp::Any
 ASTBuilder::visitString_comment(modelicaParser::String_commentContext *Ctx) {
+    visitedString_commentStmt = std::make_unique<String_commentAST>(
+        SourceLocation {Ctx->getStart()->getLine(),
+                        Ctx->getStart()->getCharPositionInLine()});
 
     return nullptr;
 }

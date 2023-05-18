@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /test/Modelica-Compiler
+CMAKE_SOURCE_DIR = /test/test_llvm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /test/Modelica-Compiler/build
+CMAKE_BINARY_DIR = /test/test_llvm/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -E cmake_progress_start /test/Modelica-Compiler/build/CMakeFiles /test/Modelica-Compiler/build/thirdparty/olive//CMakeFiles/progress.marks
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /test/Modelica-Compiler/build/CMakeFiles 0
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -E cmake_progress_start /test/test_llvm/build/CMakeFiles /test/test_llvm/build/thirdparty/olive//CMakeFiles/progress.marks
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /test/test_llvm/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/clean
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/preinstall
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/preinstall
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 thirdparty/olive/CMakeFiles/tree.dir/rule:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/CMakeFiles/tree.dir/rule
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/CMakeFiles/tree.dir/rule
 .PHONY : thirdparty/olive/CMakeFiles/tree.dir/rule
 
 # Convenience name for target.
@@ -127,12 +127,12 @@ tree: thirdparty/olive/CMakeFiles/tree.dir/rule
 
 # fast build rule for target.
 tree/fast:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/tree.dir/build.make thirdparty/olive/CMakeFiles/tree.dir/build
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/tree.dir/build.make thirdparty/olive/CMakeFiles/tree.dir/build
 .PHONY : tree/fast
 
 # Convenience name for target.
 thirdparty/olive/CMakeFiles/gram.dir/rule:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/CMakeFiles/gram.dir/rule
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/CMakeFiles/gram.dir/rule
 .PHONY : thirdparty/olive/CMakeFiles/gram.dir/rule
 
 # Convenience name for target.
@@ -141,12 +141,12 @@ gram: thirdparty/olive/CMakeFiles/gram.dir/rule
 
 # fast build rule for target.
 gram/fast:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/gram.dir/build.make thirdparty/olive/CMakeFiles/gram.dir/build
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/gram.dir/build.make thirdparty/olive/CMakeFiles/gram.dir/build
 .PHONY : gram/fast
 
 # Convenience name for target.
 thirdparty/olive/CMakeFiles/olive.dir/rule:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/CMakeFiles/olive.dir/rule
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/olive/CMakeFiles/olive.dir/rule
 .PHONY : thirdparty/olive/CMakeFiles/olive.dir/rule
 
 # Convenience name for target.
@@ -155,7 +155,7 @@ olive: thirdparty/olive/CMakeFiles/olive.dir/rule
 
 # fast build rule for target.
 olive/fast:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/build
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/build
 .PHONY : olive/fast
 
 code.o: code.c.o
@@ -163,7 +163,7 @@ code.o: code.c.o
 
 # target to build an object file
 code.c.o:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/code.c.o
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/code.c.o
 .PHONY : code.c.o
 
 code.i: code.c.i
@@ -171,7 +171,7 @@ code.i: code.c.i
 
 # target to preprocess a source file
 code.c.i:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/code.c.i
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/code.c.i
 .PHONY : code.c.i
 
 code.s: code.c.s
@@ -179,7 +179,7 @@ code.s: code.c.s
 
 # target to generate assembly for a file
 code.c.s:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/code.c.s
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/code.c.s
 .PHONY : code.c.s
 
 gram.o: gram.c.o
@@ -187,7 +187,7 @@ gram.o: gram.c.o
 
 # target to build an object file
 gram.c.o:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/gram.c.o
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/gram.c.o
 .PHONY : gram.c.o
 
 gram.i: gram.c.i
@@ -195,7 +195,7 @@ gram.i: gram.c.i
 
 # target to preprocess a source file
 gram.c.i:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/gram.c.i
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/gram.c.i
 .PHONY : gram.c.i
 
 gram.s: gram.c.s
@@ -203,7 +203,7 @@ gram.s: gram.c.s
 
 # target to generate assembly for a file
 gram.c.s:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/gram.c.s
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/gram.c.s
 .PHONY : gram.c.s
 
 iburg.o: iburg.c.o
@@ -211,7 +211,7 @@ iburg.o: iburg.c.o
 
 # target to build an object file
 iburg.c.o:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/iburg.c.o
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/iburg.c.o
 .PHONY : iburg.c.o
 
 iburg.i: iburg.c.i
@@ -219,7 +219,7 @@ iburg.i: iburg.c.i
 
 # target to preprocess a source file
 iburg.c.i:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/iburg.c.i
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/iburg.c.i
 .PHONY : iburg.c.i
 
 iburg.s: iburg.c.s
@@ -227,7 +227,7 @@ iburg.s: iburg.c.s
 
 # target to generate assembly for a file
 iburg.c.s:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/iburg.c.s
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/iburg.c.s
 .PHONY : iburg.c.s
 
 x_arrayc.o: x_arrayc.c.o
@@ -235,7 +235,7 @@ x_arrayc.o: x_arrayc.c.o
 
 # target to build an object file
 x_arrayc.c.o:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/x_arrayc.c.o
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/x_arrayc.c.o
 .PHONY : x_arrayc.c.o
 
 x_arrayc.i: x_arrayc.c.i
@@ -243,7 +243,7 @@ x_arrayc.i: x_arrayc.c.i
 
 # target to preprocess a source file
 x_arrayc.c.i:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/x_arrayc.c.i
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/x_arrayc.c.i
 .PHONY : x_arrayc.c.i
 
 x_arrayc.s: x_arrayc.c.s
@@ -251,7 +251,7 @@ x_arrayc.s: x_arrayc.c.s
 
 # target to generate assembly for a file
 x_arrayc.c.s:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/x_arrayc.c.s
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/x_arrayc.c.s
 .PHONY : x_arrayc.c.s
 
 x_arrayp.o: x_arrayp.c.o
@@ -259,7 +259,7 @@ x_arrayp.o: x_arrayp.c.o
 
 # target to build an object file
 x_arrayp.c.o:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/x_arrayp.c.o
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/x_arrayp.c.o
 .PHONY : x_arrayp.c.o
 
 x_arrayp.i: x_arrayp.c.i
@@ -267,7 +267,7 @@ x_arrayp.i: x_arrayp.c.i
 
 # target to preprocess a source file
 x_arrayp.c.i:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/x_arrayp.c.i
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/x_arrayp.c.i
 .PHONY : x_arrayp.c.i
 
 x_arrayp.s: x_arrayp.c.s
@@ -275,7 +275,7 @@ x_arrayp.s: x_arrayp.c.s
 
 # target to generate assembly for a file
 x_arrayp.c.s:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/x_arrayp.c.s
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f thirdparty/olive/CMakeFiles/olive.dir/build.make thirdparty/olive/CMakeFiles/olive.dir/x_arrayp.c.s
 .PHONY : x_arrayp.c.s
 
 # Help Target
@@ -315,6 +315,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

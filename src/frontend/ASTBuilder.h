@@ -3,21 +3,26 @@
 #include "modelicaBaseVisitor.h"
 #include "antlr4-runtime.h"
 #include "AST.h"
-// #include "forntend/Type.h"
+#include "Type.h"
 #include <memory>
 
 namespace modelica {
 
 class ASTBuilder: public modelicaBaseVisitor {
 
-public:
+private:
+    std::vector<std::unique_ptr<Class_definitionAST>> Class_definitions;
+    TypeContext &TyCtx;
+    
 
+public:
+    ASTBuilder(TypeContext &TyCtx): TyCtx(TyCtx) {}
     std::unique_ptr<Stored_definitionAST> build(modelicaParser::Stored_definitionContext *Ctx);
 
 
   virtual antlrcpp::Any visitStored_definition(modelicaParser::Stored_definitionContext *Ctx);
 
-  virtual antlrcpp::Any visitClass_definition(modelicaParser::Class_definitionContext *Ctx);
+  // virtual antlrcpp::Any visitClass_definition(modelicaParser::Class_definitionContext *Ctx);
 
   virtual antlrcpp::Any visitClass_prefixes(modelicaParser::Class_prefixesContext *Ctx);
 
@@ -218,6 +223,10 @@ public:
   virtual antlrcpp::Any visitAnnotation_comment(modelicaParser::Annotation_commentContext *Ctx);
 
   virtual antlrcpp::Any visitId(modelicaParser::IdContext *Ctx);
+
+private:
+    std::unique_ptr<Class_definitionAST>
+    visitClass_definitions(modelicaParser::Class_definitionContext *Ctx);
 };
 
 }  // namespace modelica

@@ -24,7 +24,7 @@ NL: '\r\n' | '\n' | '\r';
 
 // Lexical units except for keywords
 
-IDENT : NONDIGIT ( DIGIT | NONDIGIT )* | Q_IDENT ;
+
 
 
 fragment NONDIGIT : '_' | 'a' .. 'z' | 'A' .. 'Z' ;
@@ -142,6 +142,8 @@ DOT_P           : '.^';
 COLON           : ':';
 C_ASSIGN        : ':=';
 L_OP            : '<>';
+
+IDENT : NONDIGIT ( DIGIT | NONDIGIT )* | Q_IDENT ;
 
 stored_definition  :
   '\uFEFF'? // BOM

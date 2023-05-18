@@ -1,1 +1,1 @@
-/bin/cc -g CMakeFiles/olive.dir/gram.c.o CMakeFiles/olive.dir/x_arrayc.c.o CMakeFiles/olive.dir/x_arrayp.c.o CMakeFiles/olive.dir/code.c.o CMakeFiles/olive.dir/iburg.c.o -o ../../bin/olive 
+/usr/bin/cc -g CMakeFiles/olive.dir/gram.c.o CMakeFiles/olive.dir/x_arrayc.c.o CMakeFiles/olive.dir/x_arrayp.c.o CMakeFiles/olive.dir/code.c.o CMakeFiles/olive.dir/iburg.c.o -o ../../bin/olive 

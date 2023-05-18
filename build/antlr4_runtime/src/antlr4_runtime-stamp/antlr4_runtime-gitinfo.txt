@@ -3,9 +3,9 @@
 # No other meaning or use of this file is supported.
 
 method=git
-command=/usr/bin/cmake;-P;/test/Modelica-Compiler/build/antlr4_runtime/tmp/antlr4_runtime-gitclone.cmake
-source_dir=/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime
-work_dir=/test/Modelica-Compiler/build/antlr4_runtime/src
+command=/usr/bin/cmake;-P;/test/test_llvm/build/antlr4_runtime/tmp/antlr4_runtime-gitclone.cmake
+source_dir=/test/test_llvm/build/antlr4_runtime/src/antlr4_runtime
+work_dir=/test/test_llvm/build/antlr4_runtime/src
 repository=https://github.com/antlr/antlr4.git
 remote=origin
 init_submodules=TRUE

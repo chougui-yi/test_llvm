@@ -2,13 +2,13 @@
 	"sources" : 
 	[
 		{
-			"file" : "/test/Modelica-Compiler/build/CMakeFiles/antlr4_runtime-build_shared"
+			"file" : "/test/test_llvm/build/CMakeFiles/antlr4_runtime-build_shared"
 		},
 		{
-			"file" : "/test/Modelica-Compiler/build/CMakeFiles/antlr4_runtime-build_shared.rule"
+			"file" : "/test/test_llvm/build/CMakeFiles/antlr4_runtime-build_shared.rule"
 		},
 		{
-			"file" : "/test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_shared.rule"
+			"file" : "/test/test_llvm/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_shared.rule"
 		}
 	],
 	"target" : 

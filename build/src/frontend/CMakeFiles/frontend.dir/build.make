@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /test/Modelica-Compiler
+CMAKE_SOURCE_DIR = /test/test_llvm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /test/Modelica-Compiler/build
+CMAKE_BINARY_DIR = /test/test_llvm/build
 
 # Include any dependencies generated for this target.
 include src/frontend/CMakeFiles/frontend.dir/depend.make
@@ -69,9 +69,9 @@ include src/frontend/CMakeFiles/frontend.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/frontend/CMakeFiles/frontend.dir/flags.make
 
-src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.interp: /test/Modelica-Compiler/grammar/modelica.g4
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/test/Modelica-Compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building ModelicaGrammar with ANTLR 4.9.3"
-	cd /test/Modelica-Compiler/src/frontend && /java/jdk1.8.0_161/bin/java -jar /test/Modelica-Compiler/thirdparty/antlr/antlr-4.9.3-complete.jar /test/Modelica-Compiler/grammar/modelica.g4 -o /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica -no-listener -Dlanguage=Cpp -visitor
+src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.interp: /test/test_llvm/grammar/modelica.g4
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/test/test_llvm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building ModelicaGrammar with ANTLR 4.9.3"
+	cd /test/test_llvm/src/frontend && /usr/bin/java -jar /test/test_llvm/thirdparty/antlr/antlr-4.9.3-complete.jar /test/test_llvm/grammar/modelica.g4 -o /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica -no-listener -Dlanguage=Cpp -visitor
 
 src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.tokens: src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.interp
 	@$(CMAKE_COMMAND) -E touch_nocreate src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.tokens
@@ -100,92 +100,107 @@ src/frontend/antlr4cpp_generated_src/modelica/modelicaVisitor.h: src/frontend/an
 src/frontend/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp: src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.interp
 	@$(CMAKE_COMMAND) -E touch_nocreate src/frontend/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp
 
+src/frontend/CMakeFiles/frontend.dir/Type.cpp.o: src/frontend/CMakeFiles/frontend.dir/flags.make
+src/frontend/CMakeFiles/frontend.dir/Type.cpp.o: /test/test_llvm/src/frontend/Type.cpp
+src/frontend/CMakeFiles/frontend.dir/Type.cpp.o: src/frontend/CMakeFiles/frontend.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/test_llvm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/frontend/CMakeFiles/frontend.dir/Type.cpp.o"
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/Type.cpp.o -MF CMakeFiles/frontend.dir/Type.cpp.o.d -o CMakeFiles/frontend.dir/Type.cpp.o -c /test/test_llvm/src/frontend/Type.cpp
+
+src/frontend/CMakeFiles/frontend.dir/Type.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/frontend.dir/Type.cpp.i"
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/test_llvm/src/frontend/Type.cpp > CMakeFiles/frontend.dir/Type.cpp.i
+
+src/frontend/CMakeFiles/frontend.dir/Type.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/frontend.dir/Type.cpp.s"
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/test_llvm/src/frontend/Type.cpp -o CMakeFiles/frontend.dir/Type.cpp.s
+
 src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.o: src/frontend/CMakeFiles/frontend.dir/flags.make
-src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.o: /test/Modelica-Compiler/src/frontend/ASTBuilder.cpp
+src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.o: /test/test_llvm/src/frontend/ASTBuilder.cpp
 src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.o: src/frontend/CMakeFiles/frontend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/Modelica-Compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.o"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.o -MF CMakeFiles/frontend.dir/ASTBuilder.cpp.o.d -o CMakeFiles/frontend.dir/ASTBuilder.cpp.o -c /test/Modelica-Compiler/src/frontend/ASTBuilder.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/test_llvm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.o"
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.o -MF CMakeFiles/frontend.dir/ASTBuilder.cpp.o.d -o CMakeFiles/frontend.dir/ASTBuilder.cpp.o -c /test/test_llvm/src/frontend/ASTBuilder.cpp
 
 src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/frontend.dir/ASTBuilder.cpp.i"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/Modelica-Compiler/src/frontend/ASTBuilder.cpp > CMakeFiles/frontend.dir/ASTBuilder.cpp.i
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/test_llvm/src/frontend/ASTBuilder.cpp > CMakeFiles/frontend.dir/ASTBuilder.cpp.i
 
 src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/frontend.dir/ASTBuilder.cpp.s"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/Modelica-Compiler/src/frontend/ASTBuilder.cpp -o CMakeFiles/frontend.dir/ASTBuilder.cpp.s
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/test_llvm/src/frontend/ASTBuilder.cpp -o CMakeFiles/frontend.dir/ASTBuilder.cpp.s
 
 src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.o: src/frontend/CMakeFiles/frontend.dir/flags.make
-src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.o: /test/Modelica-Compiler/src/frontend/FrontEnd.cpp
+src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.o: /test/test_llvm/src/frontend/FrontEnd.cpp
 src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.o: src/frontend/CMakeFiles/frontend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/Modelica-Compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.o"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.o -MF CMakeFiles/frontend.dir/FrontEnd.cpp.o.d -o CMakeFiles/frontend.dir/FrontEnd.cpp.o -c /test/Modelica-Compiler/src/frontend/FrontEnd.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/test_llvm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.o"
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.o -MF CMakeFiles/frontend.dir/FrontEnd.cpp.o.d -o CMakeFiles/frontend.dir/FrontEnd.cpp.o -c /test/test_llvm/src/frontend/FrontEnd.cpp
 
 src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/frontend.dir/FrontEnd.cpp.i"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/Modelica-Compiler/src/frontend/FrontEnd.cpp > CMakeFiles/frontend.dir/FrontEnd.cpp.i
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/test_llvm/src/frontend/FrontEnd.cpp > CMakeFiles/frontend.dir/FrontEnd.cpp.i
 
 src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/frontend.dir/FrontEnd.cpp.s"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/Modelica-Compiler/src/frontend/FrontEnd.cpp -o CMakeFiles/frontend.dir/FrontEnd.cpp.s
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/test_llvm/src/frontend/FrontEnd.cpp -o CMakeFiles/frontend.dir/FrontEnd.cpp.s
 
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o: src/frontend/CMakeFiles/frontend.dir/flags.make
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o: src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.cpp
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o: src/frontend/CMakeFiles/frontend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/Modelica-Compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o -MF CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o.d -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o -c /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/test_llvm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o"
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o -MF CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o.d -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o -c /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.cpp
 
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.i"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.cpp > CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.i
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.cpp > CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.i
 
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.s"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.cpp -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.s
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaLexer.cpp -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.s
 
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o: src/frontend/CMakeFiles/frontend.dir/flags.make
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o: src/frontend/antlr4cpp_generated_src/modelica/modelicaParser.cpp
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o: src/frontend/CMakeFiles/frontend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/Modelica-Compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o -MF CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o.d -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o -c /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/test_llvm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o"
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o -MF CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o.d -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.o -c /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaParser.cpp
 
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.i"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaParser.cpp > CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.i
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaParser.cpp > CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.i
 
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.s"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaParser.cpp -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.s
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaParser.cpp -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaParser.cpp.s
 
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o: src/frontend/CMakeFiles/frontend.dir/flags.make
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o: src/frontend/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o: src/frontend/CMakeFiles/frontend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/Modelica-Compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o -MF CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o.d -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o -c /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/test_llvm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o"
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o -MF CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o.d -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.o -c /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp
 
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.i"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp > CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.i
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp > CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.i
 
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.s"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.s
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp.s
 
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o: src/frontend/CMakeFiles/frontend.dir/flags.make
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o: src/frontend/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o: src/frontend/CMakeFiles/frontend.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/Modelica-Compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o -MF CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o.d -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o -c /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/test/test_llvm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o"
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o -MF CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o.d -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o -c /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp
 
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.i"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp > CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.i
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp > CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.i
 
 src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.s"
-	cd /test/Modelica-Compiler/build/src/frontend && /bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/Modelica-Compiler/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.s
+	cd /test/test_llvm/build/src/frontend && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /test/test_llvm/build/src/frontend/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp -o CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.s
 
 # Object files for target frontend
 frontend_OBJECTS = \
+"CMakeFiles/frontend.dir/Type.cpp.o" \
 "CMakeFiles/frontend.dir/ASTBuilder.cpp.o" \
 "CMakeFiles/frontend.dir/FrontEnd.cpp.o" \
 "CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o" \
@@ -196,6 +211,7 @@ frontend_OBJECTS = \
 # External object files for target frontend
 frontend_EXTERNAL_OBJECTS =
 
+lib/libfrontend.a: src/frontend/CMakeFiles/frontend.dir/Type.cpp.o
 lib/libfrontend.a: src/frontend/CMakeFiles/frontend.dir/ASTBuilder.cpp.o
 lib/libfrontend.a: src/frontend/CMakeFiles/frontend.dir/FrontEnd.cpp.o
 lib/libfrontend.a: src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaLexer.cpp.o
@@ -204,16 +220,16 @@ lib/libfrontend.a: src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/
 lib/libfrontend.a: src/frontend/CMakeFiles/frontend.dir/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp.o
 lib/libfrontend.a: src/frontend/CMakeFiles/frontend.dir/build.make
 lib/libfrontend.a: src/frontend/CMakeFiles/frontend.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/test/Modelica-Compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library ../../lib/libfrontend.a"
-	cd /test/Modelica-Compiler/build/src/frontend && $(CMAKE_COMMAND) -P CMakeFiles/frontend.dir/cmake_clean_target.cmake
-	cd /test/Modelica-Compiler/build/src/frontend && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/frontend.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/test/test_llvm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library ../../lib/libfrontend.a"
+	cd /test/test_llvm/build/src/frontend && $(CMAKE_COMMAND) -P CMakeFiles/frontend.dir/cmake_clean_target.cmake
+	cd /test/test_llvm/build/src/frontend && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/frontend.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/frontend/CMakeFiles/frontend.dir/build: lib/libfrontend.a
 .PHONY : src/frontend/CMakeFiles/frontend.dir/build
 
 src/frontend/CMakeFiles/frontend.dir/clean:
-	cd /test/Modelica-Compiler/build/src/frontend && $(CMAKE_COMMAND) -P CMakeFiles/frontend.dir/cmake_clean.cmake
+	cd /test/test_llvm/build/src/frontend && $(CMAKE_COMMAND) -P CMakeFiles/frontend.dir/cmake_clean.cmake
 .PHONY : src/frontend/CMakeFiles/frontend.dir/clean
 
 src/frontend/CMakeFiles/frontend.dir/depend: src/frontend/antlr4cpp_generated_src/modelica/modelicaBaseVisitor.cpp
@@ -226,6 +242,6 @@ src/frontend/CMakeFiles/frontend.dir/depend: src/frontend/antlr4cpp_generated_sr
 src/frontend/CMakeFiles/frontend.dir/depend: src/frontend/antlr4cpp_generated_src/modelica/modelicaParser.h
 src/frontend/CMakeFiles/frontend.dir/depend: src/frontend/antlr4cpp_generated_src/modelica/modelicaVisitor.cpp
 src/frontend/CMakeFiles/frontend.dir/depend: src/frontend/antlr4cpp_generated_src/modelica/modelicaVisitor.h
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /test/Modelica-Compiler /test/Modelica-Compiler/src/frontend /test/Modelica-Compiler/build /test/Modelica-Compiler/build/src/frontend /test/Modelica-Compiler/build/src/frontend/CMakeFiles/frontend.dir/DependInfo.cmake --color=$(COLOR)
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /test/test_llvm /test/test_llvm/src/frontend /test/test_llvm/build /test/test_llvm/build/src/frontend /test/test_llvm/build/src/frontend/CMakeFiles/frontend.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/frontend/CMakeFiles/frontend.dir/depend
 

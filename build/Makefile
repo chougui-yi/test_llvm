@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /test/Modelica-Compiler
+CMAKE_SOURCE_DIR = /test/test_llvm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /test/Modelica-Compiler/build
+CMAKE_BINARY_DIR = /test/test_llvm/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /test/Modelica-Compiler/build/CMakeFiles /test/Modelica-Compiler/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /test/test_llvm/build/CMakeFiles /test/test_llvm/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /test/Modelica-Compiler/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /test/test_llvm/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -259,6 +259,19 @@ frontend/fast:
 	$(MAKE) $(MAKESILENT) -f src/frontend/CMakeFiles/frontend.dir/build.make src/frontend/CMakeFiles/frontend.dir/build
 .PHONY : frontend/fast
 
+#=============================================================================
+# Target rules for targets named ircodegen
+
+# Build rule for target.
+ircodegen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ircodegen
+.PHONY : ircodegen
+
+# fast build rule for target.
+ircodegen/fast:
+	$(MAKE) $(MAKESILENT) -f src/codegen/ir/CMakeFiles/ircodegen.dir/build.make src/codegen/ir/CMakeFiles/ircodegen.dir/build
+.PHONY : ircodegen/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -276,6 +289,7 @@ help:
 	@echo "... omp_gen"
 	@echo "... tree"
 	@echo "... frontend"
+	@echo "... ircodegen"
 	@echo "... modelica"
 	@echo "... olive"
 .PHONY : help

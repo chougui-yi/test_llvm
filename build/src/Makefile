@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /test/Modelica-Compiler
+CMAKE_SOURCE_DIR = /test/test_llvm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /test/Modelica-Compiler/build
+CMAKE_BINARY_DIR = /test/test_llvm/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -E cmake_progress_start /test/Modelica-Compiler/build/CMakeFiles /test/Modelica-Compiler/build/src//CMakeFiles/progress.marks
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /test/Modelica-Compiler/build/CMakeFiles 0
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -E cmake_progress_start /test/test_llvm/build/CMakeFiles /test/test_llvm/build/src//CMakeFiles/progress.marks
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /test/test_llvm/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/modelica.dir/rule:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/modelica.dir/rule
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/modelica.dir/rule
 .PHONY : src/CMakeFiles/modelica.dir/rule
 
 # Convenience name for target.
@@ -127,7 +127,7 @@ modelica: src/CMakeFiles/modelica.dir/rule
 
 # fast build rule for target.
 modelica/fast:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/modelica.dir/build.make src/CMakeFiles/modelica.dir/build
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/modelica.dir/build.make src/CMakeFiles/modelica.dir/build
 .PHONY : modelica/fast
 
 driver.o: driver.cpp.o
@@ -135,7 +135,7 @@ driver.o: driver.cpp.o
 
 # target to build an object file
 driver.cpp.o:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/modelica.dir/build.make src/CMakeFiles/modelica.dir/driver.cpp.o
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/modelica.dir/build.make src/CMakeFiles/modelica.dir/driver.cpp.o
 .PHONY : driver.cpp.o
 
 driver.i: driver.cpp.i
@@ -143,7 +143,7 @@ driver.i: driver.cpp.i
 
 # target to preprocess a source file
 driver.cpp.i:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/modelica.dir/build.make src/CMakeFiles/modelica.dir/driver.cpp.i
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/modelica.dir/build.make src/CMakeFiles/modelica.dir/driver.cpp.i
 .PHONY : driver.cpp.i
 
 driver.s: driver.cpp.s
@@ -151,7 +151,7 @@ driver.s: driver.cpp.s
 
 # target to generate assembly for a file
 driver.cpp.s:
-	cd /test/Modelica-Compiler/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/modelica.dir/build.make src/CMakeFiles/modelica.dir/driver.cpp.s
+	cd /test/test_llvm/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/modelica.dir/build.make src/CMakeFiles/modelica.dir/driver.cpp.s
 .PHONY : driver.cpp.s
 
 # Help Target
@@ -177,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "../../bin/olive"
   "../../bin/olive.pdb"
-  "/test/Modelica-Compiler/thirdparty/olive/gram.c"
+  "/test/test_llvm/thirdparty/olive/gram.c"
   "CMakeFiles/olive.dir/code.c.o"
   "CMakeFiles/olive.dir/code.c.o.d"
   "CMakeFiles/olive.dir/gram.c.o"

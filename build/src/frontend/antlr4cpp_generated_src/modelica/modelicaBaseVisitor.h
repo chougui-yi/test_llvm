@@ -1,5 +1,5 @@
 
-// Generated from /test/Modelica-Compiler/grammar/modelica.g4 by ANTLR 4.9.3
+// Generated from /test/test_llvm/grammar/modelica.g4 by ANTLR 4.9.3
 
 #pragma once
 

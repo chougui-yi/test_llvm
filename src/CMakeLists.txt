@@ -1,7 +1,7 @@
 # Build the phase specific libraries
 add_subdirectory(frontend)
 # add_subdirectory(semantic)
-# add_subdirectory(codegen)
+add_subdirectory(codegen)
 # add_subdirectory(optimizer)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/config.h @ONLY)
@@ -10,6 +10,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.in ${CMAKE_CURRENT_SOURCE_DI
 add_executable(modelica ${CMAKE_CURRENT_SOURCE_DIR}/driver.cpp)
 target_link_libraries(modelica PRIVATE frontend
                                     #  optimizer
+                                     ircodegen
                                      antlr4_static
                                      ${llvm_libs}
 )

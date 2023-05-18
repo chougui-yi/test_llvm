@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /test/Modelica-Compiler
+CMAKE_SOURCE_DIR = /test/test_llvm
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /test/Modelica-Compiler/build
+CMAKE_BINARY_DIR = /test/test_llvm/build
 
 # Utility rule file for antlr4_runtime-build_static.
 
@@ -69,9 +69,9 @@ include CMakeFiles/antlr4_runtime-build_static.dir/progress.make
 CMakeFiles/antlr4_runtime-build_static: antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_static
 
 antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_static:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/test/Modelica-Compiler/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Performing build_static step for 'antlr4_runtime'"
-	cd /test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime/runtime/Cpp && $(MAKE) antlr4_static
-	cd /test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime/runtime/Cpp && /usr/bin/cmake -E touch /test/Modelica-Compiler/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_static
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/test/test_llvm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Performing build_static step for 'antlr4_runtime'"
+	cd /test/test_llvm/build/antlr4_runtime/src/antlr4_runtime/runtime/Cpp && $(MAKE) antlr4_static
+	cd /test/test_llvm/build/antlr4_runtime/src/antlr4_runtime/runtime/Cpp && /usr/bin/cmake -E touch /test/test_llvm/build/antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_static
 
 antlr4_runtime-build_static: CMakeFiles/antlr4_runtime-build_static
 antlr4_runtime-build_static: antlr4_runtime/src/antlr4_runtime-stamp/antlr4_runtime-build_static
@@ -87,6 +87,6 @@ CMakeFiles/antlr4_runtime-build_static.dir/clean:
 .PHONY : CMakeFiles/antlr4_runtime-build_static.dir/clean
 
 CMakeFiles/antlr4_runtime-build_static.dir/depend:
-	cd /test/Modelica-Compiler/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /test/Modelica-Compiler /test/Modelica-Compiler /test/Modelica-Compiler/build /test/Modelica-Compiler/build /test/Modelica-Compiler/build/CMakeFiles/antlr4_runtime-build_static.dir/DependInfo.cmake --color=$(COLOR)
+	cd /test/test_llvm/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /test/test_llvm /test/test_llvm /test/test_llvm/build /test/test_llvm/build /test/test_llvm/build/CMakeFiles/antlr4_runtime-build_static.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/antlr4_runtime-build_static.dir/depend
 
